@@ -1,0 +1,37 @@
+<!-- 000000000004 -->
+<!-- 0000017 -->
+<% layout("/layouts/boilerplate") %>
+<div class="row mt-3 mb-5">
+    <div class="col-8 offset-3">
+    <h3>Listing Details : </h3>
+    </div> 
+    <div class="card col-6 offset-3 show-card">
+        <img src="<%= listing.image %>" class="card-img-top show-img" alt="listing_image">
+        <div class="card-body">
+            <p class="card-text"><%= listing.title %>
+                <br><%= listing.description %>
+        <!-- for rupee sign we use &#8377; and for converting into string and showing commas like indian system rupees like 12,000 we use .toLocalString("en-IN") -->
+                <br>&#8377; <%= listing.price.toLocaleString("en-IN") %>
+                <br><%= listing.location %>
+                <br><%= listing.country %>
+            </p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <!-- 000000013 -->
+</div>
+<div class="btns mb-5">
+    <% if(listing.price.toLocaleString("en-IN")==="0") { %>
+        <a href="/listings/<%= listing._id %>/freebook" class="btn btn-dark col-1 offset-3 edit-btn">Free Slot</a>
+        <% } else{ %>
+            <a href="/listings/<%= listing._id %>/book" class="btn btn-dark col-1 offset-3 edit-btn">Book Slot</a>
+            <% } %>
+    <a href="/listings/vedio/<%= listing._id %>" class="btn btn-dark col-1 offset-3 edit-btn joinow">Join Now</a>
+    <!-- <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
+    
+
+    <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
+        <button class="btn btn-dark offset-5">Delete</button> -->
+    </form>
+</div>

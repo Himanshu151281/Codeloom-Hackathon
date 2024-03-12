@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Conferencing</title>
+    <style>
+        /* Reset default margin and padding */
+        body, h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Center align content */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+
+        /* Container for video and message box */
+        #container {
+            display: flex;
+            flex-direction: column; /* Align items vertically */
+            justify-content: center;
+            align-items: center;
+            width: 800px; /* Adjust as needed */
+        }
+
+        /* Video and message box wrapper */
+        #videoMessageBoxWrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        /* Video container style */
+        #videoContainer {
+            width: 640px;
+            height: 480px;
+            background-color: #fff;
+            border: 1px solid #dfe1e5;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0px 1px 6px 0px rgba(32, 33, 36, 0.28);
+        }
+
+        /* Message box style */
+        #messageBox {
+            width: 150px; /* Adjust as needed */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+
+        /* Button style */
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: purple; /* Change button color to purple */
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Style for button container */
+        #buttonContainer {
+            display: flex;
+            justify-content: space-around; /* Space buttons evenly */
+            width: 100%; /* Take full width of container */
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="videoMessageBoxWrapper">
+            <div id="videoContainer">
+                <video id="localVideo" autoplay muted></video>
+            </div>
+
+            <!-- Message box -->
+            <input type="text" id="messageBox" placeholder="Type your message...">
+        </div>
+
+        <!-- Send message button -->
+        <button id="sendMessageButton">Send Message</button>
+
+        <!-- Button container -->
+        <div id="buttonContainer">
+            <button id="muteAudioButton">Mute Audio</button>
+            <button id="muteVideoButton">Mute Video</button>
+        </div>
+    </div>
+
+    <script>
+        // Access the user's camera and display the local video feed
+        async function startVideo() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                const videoElement = document.getElementById('localVideo');
+                videoElement.srcObject = stream;
+            } catch (error) {
+                console.error('Error accessing camera:', error);
+            }
+        }
+
+        // Toggle audio stream when mute audio button is clicked
+        document.getElementById('muteAudioButton').addEventListener('click', function() {
+            const videoElement = document.getElementById('localVideo');
+            videoElement.muted = !videoElement.muted;
+            console.log('Audio muted:', videoElement.muted);
+        });
+
+        // Toggle video stream when mute video button is clicked
+        document.getElementById('muteVideoButton').addEventListener('click', function() {
+            const videoElement = document.getElementById('localVideo');
+            const tracks = videoElement.srcObject.getVideoTracks();
+            tracks.forEach(track => {
+                track.enabled = !track.enabled;
+                console.log('Video enabled:', track.enabled);
+            });
+        });
+
+        // Start video when the page loads
+        window.onload = startVideo;
+    </script>
+</body>
+</html>

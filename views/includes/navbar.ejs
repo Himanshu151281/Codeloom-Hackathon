@@ -1,0 +1,92 @@
+<!-- 0000000021 navbar -->
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+      <!-- new -->
+      <!-- <a class="navbar-brand">Navbar</a> -->
+      
+      <!-- new close -->
+      <a class="navbar-brand" href="/"><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" >
+        <span class="navbar-toggler-icon usericon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link"  href="/home">Home</a>
+          <a class="nav-link" href="/listings">All Events</a>
+          <a class="nav-link" href="/listings/new">Add New Event</a>
+        </div>
+        <div class="searchbar">
+          <form class="d-flex" role="search" action="/home" method="post">
+            <input class="form-control me-3" placeholder="Search Events" aria-label="Search" name="title">
+            <!-- <datalist id="datalistOptions">
+              <option value="Bhilai">
+              <option value="Raipur">
+              <option value="Delhi">
+              <option value="Nagpur">
+              <option value="Bangalore">
+            </datalist> -->
+          </form>
+        </div>
+        <div class="dropdown locdr">
+          <button class="btn btn-secondary dropdown-toggle locationbutton" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Location
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/resf/" method="get" name="location">Bilaspur</a></li>
+            <li><a class="dropdown-item" href="/resf/" method="get" name="location">Durg</a></li>
+            <li><a class="dropdown-item" href="/resf/" method="get" name="location">Raipur</a></li>
+            <li><a class="dropdown-item" href="/resf/" method="get" name="location">Jagdalpur</a></li>
+            <li><a class="dropdown-item" href="/resf/" method="get" name="location">Ambikapur</a></li>
+          </ul>
+        </div>
+        <div class="navbar-nav sp">
+          <a href="/login"><i class="fa-solid fa-user userbtnnn" style="color: #ffffff;" ></a></i>
+      </div>
+    </div>
+  </nav>
+
+
+<!-- 2nd Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary navbarnew">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Distance</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active kmbt" aria-current="page" href="/home/r">0-5km</a>
+          </li> 
+          <li class="nav-item ">
+            <a class="nav-link kmbt" href="/home/b" >5-10km</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link kmbt" href="/home/i">10-15km</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- 2nd navbar open -->
+  <!-- <nav class="navbarnew navbar ">
+    <div class="container-fluid">
+      <a class="navbar-brand">Navbar</a>
+      <button class="kmbutton">0 - 10 km</button>
+      <button class="kmbutton">0 - 10 km</button>
+      <button class="kmbutton">0 - 10 km</button> -->
+      <!-- <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form> -->
+    <!-- </div>
+  </nav> -->
+  <!-- 2nd navbar close -->
+
+
+  <!-- <a class="nav-link sisu"  href="#">Signin</a>
+          <a class="nav-link sisu"  href="#">/</a>
+          <a class="nav-link sisu" href="#">SignUp</a> -->

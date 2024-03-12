@@ -1,0 +1,54 @@
+<% layout("/layouts/boilerplate") %>
+<div class="mt-5">
+    <!-- <h1 class="mt-4 mb-3">Search Event In Your Area or search nearest event to you</h1> -->
+    <!-- <label for="exampleDataList" class="form-label">Datalist example</label> -->
+    <!-- <form action="/home" method="post">
+        <input class="form-control mb-3" list="datalistOptions" id="exampleDataList" placeholder="Type to search... Or enter your location" name="location">
+<datalist id="datalistOptions">
+  <option value="Bhilai">
+  <option value="Raipur">
+  <option value="Delhi">
+  <option value="Nagpur">
+  <option value="Bangalore">
+</datalist>
+<button class="btn btn-dark edit-btn mt-3 mb-5">Submit</button>
+    </form> -->
+
+
+    <!-- <h1>Search Results</h1> -->
+
+
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+        <% for(let listing of allListings){ %>
+            <a href="/listings/<%= listing._id %>"  class="listing-link">
+                <div class="card col">
+                    <!-- 000000030 -->
+                    <img src="<%= listing.image %>" class="card-img-top" alt="listing_image" style="height: 20rem">
+                        <div class="card-img-overlay"></div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b><%= listing.title %></b>
+                                <br>
+                            <!-- &#8377; <%= listing.price.toLocaleString("en-IN") %> / night -->
+                            <% if(listing.price.toLocaleString("en-IN")==="0") { %>
+                                Free
+                                <% } else{ %>
+                                    &#8377; <%= listing.price.toLocaleString("en-IN") %> /Session
+                                    <% } %>
+                        </p>
+                    </div>
+                </div>
+            </a>
+        <% } %>
+    </div>
+
+
+
+    
+    <!-- <ul>
+        <% allListings.forEach(function(listing) { %>
+            <li><%= listing.title %> - <%= listing.location %></li>
+        <% }); %>
+    </ul> -->
+</div>
